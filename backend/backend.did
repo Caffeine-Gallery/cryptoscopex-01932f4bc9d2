@@ -1,3 +1,23 @@
+type TokenData = 
+ record {
+   cexVolume: float64;
+   decimals: nat8;
+   dexVolume: float64;
+   fdv: float64;
+   lastUpdated: int;
+   marketCap: float64;
+   name: text;
+   price: float64;
+   priceHistory: vec float64;
+   symbol: text;
+   totalSupply: nat;
+   volume24h: float64;
+ };
 service : {
-  heartbeat: () -> (text) query;
+  getAllTokenData: () -> (vec record {
+                                text;
+                                TokenData;
+                              }) query;
+  getTokenData: (text) -> (opt TokenData) query;
+  heartbeat: () -> (text);
 }
