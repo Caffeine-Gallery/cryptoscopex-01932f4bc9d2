@@ -14,7 +14,9 @@ export interface TokenData {
   'volume24h' : number,
   'totalSupply' : bigint,
   'price' : number,
+  'standard' : string,
   'symbol' : string,
+  'canisterId' : [] | [string],
 }
 export interface _SERVICE {
   'getAllTokenData' : ActorMethod<[], Array<[string, TokenData]>>,

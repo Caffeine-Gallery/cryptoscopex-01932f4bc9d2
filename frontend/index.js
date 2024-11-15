@@ -10,7 +10,18 @@ function formatNumber(num) {
     return num.toFixed(2);
 }
 
+function getStandardBadgeClass(standard) {
+    switch(standard) {
+        case 'ICRC1': return 'bg-primary';
+        case 'SNS': return 'bg-success';
+        case 'Native': return 'bg-warning';
+        default: return 'bg-secondary';
+    }
+}
+
 function createSparklineChart(containerId, data) {
+    if (!data || data.length === 0) return;
+    
     const ctx = document.getElementById(containerId).getContext('2d');
     return new Chart(ctx, {
         type: 'line',
@@ -89,8 +100,10 @@ function updateTable(data) {
         row.innerHTML = `
             <td>
                 ${token.name} (${token.symbol})
+                ${token.canisterId ? `<br><small class="text-muted">${token.canisterId}</small>` : ''}
             </td>
-            <td>$${token.price.toFixed(2)}</td>
+            <td><span class="badge ${getStandardBadgeClass(token.standard)}">${token.standard}</span></td>
+            <td>$${token.price.toFixed(4)}</td>
             <td>$${formatNumber(token.marketCap)}</td>
             <td>$${formatNumber(token.fdv)}</td>
             <td>$${formatNumber(token.volume24h)}</td>

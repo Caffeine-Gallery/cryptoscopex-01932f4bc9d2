@@ -1,5 +1,6 @@
 type TokenData = 
  record {
+   canisterId: opt text;
    cexVolume: float64;
    decimals: nat8;
    dexVolume: float64;
@@ -9,6 +10,7 @@ type TokenData =
    name: text;
    price: float64;
    priceHistory: vec float64;
+   standard: text;
    symbol: text;
    totalSupply: nat;
    volume24h: float64;

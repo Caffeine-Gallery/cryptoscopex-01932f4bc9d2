@@ -11,7 +11,9 @@ export const idlFactory = ({ IDL }) => {
     'volume24h' : IDL.Float64,
     'totalSupply' : IDL.Nat,
     'price' : IDL.Float64,
+    'standard' : IDL.Text,
     'symbol' : IDL.Text,
+    'canisterId' : IDL.Opt(IDL.Text),
   });
   return IDL.Service({
     'getAllTokenData' : IDL.Func(
