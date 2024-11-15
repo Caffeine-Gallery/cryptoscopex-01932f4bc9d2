@@ -1,0 +1,42 @@
+.chart-container {
+    width: 200px;
+    height: 60px;
+}
+
+.crypto-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+th[data-sort] {
+    cursor: pointer;
+}
+
+th[data-sort]:hover {
+    background-color: #f8f9fa;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        width: 150px;
+        height: 45px;
+    }
+    
+    .table td, .table th {
+        font-size: 0.875rem;
+    }
+}
